@@ -1,0 +1,1 @@
+// ShopService ExampleModel content here
