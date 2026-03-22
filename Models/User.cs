@@ -1,20 +1,30 @@
-using System.ComponentModel.DataAnnotations;
+using System;
 
-namespace GroceryMarketplaceSolution.Models
+namespace GroceryMarketplace.UserService.Api.Models
 {
     public class User
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
-        [Required]
-        [EmailAddress]
+        public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
-        [Required]
-        [MinLength(6)]
-        public string Password { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string PhoneNumber { get; set; }
+        public string PasswordHash { get; set; }
+        public UserType UserType { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
+    }
+
+    public enum UserType
+    {
+        Customer = 1,
+        Grocer = 2,
+        DeliveryAgent = 3,
+        Admin = 4
     }
 }
